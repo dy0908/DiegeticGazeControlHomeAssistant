@@ -1,0 +1,16 @@
+appdaemon:
+  latitude: 0
+  longitude: 0
+  elevation: 30
+  time_zone: Europe/London
+  plugins:
+    HASS:
+      type: hass
+      ha_url: http://172.17.0.1:8123
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjYWQ1NjYzNmQ0NzI0NGU1YmY5NTJhNDY0NmExOGVmMCIsImlhdCI6MTcyMDc1ODE0NywiZXhwIjoyMDM2MTE4MTQ3fQ.9IDYeV7wK6pgbUF6p-8niUqNLY3ae2Q3iEAZG8khHBM
+      cert_verify: True
+http:
+  url: http://0.0.0.0:5050
+admin:
+api:
+hadashboard:

@@ -1,0 +1,77 @@
+##
+## Main arguments, all optional
+##
+title: Main Panel
+widget_dimensions: [120, 120]
+widget_size: [1, 1]
+widget_margins: [5, 5]
+columns: 8
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+    namespace: default
+    devices:
+      media_player:
+        step: 5
+
+andrew_presence:
+    widget_type: device_tracker
+    title: Andrew
+    device: andrews_iphone
+
+clock:
+    widget_type: clock
+
+garage:
+    widget_type: switch
+    title: Garage
+    entity: switch.garage_door
+    icon_on: fas-car
+    icon_off: fas-car
+    warn: 1
+
+light_level:
+    widget_type: sensor
+    title: Light Level
+    units: "lux"
+    precision: 0
+    shorten: 1
+    entity: sensor.side_multisensor_luminance_25_3
+
+switch:
+    widget_type: switch
+    title: wemo_switch_1
+    entity: switch.wemo_switch_1
+
+porch_motion:
+    widget_type: binary_sensor
+    title: Porch
+    entity: binary_sensor.porch_multisensor_sensor_27_0
+
+side_temperature:
+    widget_type: sensor
+    title: Temperature
+    units: "&deg;F"
+    precision: 0
+    entity: sensor.side_temp_corrected
+
+side_humidity:
+    widget_type: sensor
+    title: Humidity
+    units: "%"
+    precision: 0
+    entity: sensor.side_humidity_corrected
+
+weather:
+    widget_type: weather
+    units: "&deg;F"
+
+wendy_presence:
+    widget_type: device_tracker
+    title: Wendy
+    device: wendys_iphone
+    
+layout:
+    - clock(2x1)
+    - switch(2x1)

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker pull enunezs/diegetic_gaze_control:1.1
+docker pull enunezs/diegetic_gaze_control:1.0
 
 docker run -it \
 	--env="DISPLAY" \
@@ -10,10 +10,8 @@ docker run -it \
 	--privileged \
 	--net=host \
 	--volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-	--volume="$HOME/.Xauthority:/root/.Xauthority" \
 	--volume $(pwd):/root/ws/DiegeticGazeControl \
 	--volume /dev/shm:/dev/shm \
-	enunezs/diegetic_gaze_control:1.1
-#	--env "ROS_DOMAIN_ID=7" \
+	enunezs/diegetic_gaze_control:1.0
 
 export containerId=$(docker ps -l -q)

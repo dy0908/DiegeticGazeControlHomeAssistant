@@ -10,7 +10,6 @@ docker run -it \
 	-v /dev/shm:/dev/shm \
 	osrf/ros:humble-desktop \
 	rviz2
-#	-e "ROS_DOMAIN_ID=7" \
 
 export containerId=$(docker ps -l -q)
 

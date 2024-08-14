@@ -12,7 +12,6 @@ docker run -it --env="DISPLAY" \
 	--volume $(pwd):/root/ws/DiegeticGazeControl \
 	--volume /dev/shm:/dev/shm \
 	diegetic_gaze_control:latest
-#	--env "ROS_DOMAIN_ID=7" \
 
 export containerId=$(docker ps -l -q)
 

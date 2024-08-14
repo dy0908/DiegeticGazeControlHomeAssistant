@@ -1,5 +1,5 @@
 ARG ROS_DISTRO=humble
-FROM ros:$ROS_DISTRO-ros-base
+FROM arm64v8/ros:$ROS_DISTRO-ros-base
 LABEL maintainer="Emanuel Nunez S gmail dot com"
 ENV HOME /root
 WORKDIR $HOME
@@ -11,9 +11,8 @@ RUN apt-get update && apt-get install -y \
 	ros-$ROS_DISTRO-vision-opencv \
 	ros-$ROS_DISTRO-compressed-image-transport\
 	ros-$ROS_DISTRO-image-transport \
-    ros-$ROS_DISTRO-tf-transformations \
-    ros-$ROS_DISTRO-joy 
-    
+    ros-$ROS_DISTRO-tf-transformations
+
 # General utilities
 RUN apt-get update && apt-get install -y \
     wget \
@@ -36,16 +35,22 @@ RUN apt-get update && apt-get install -y \
 # Install pip 
 RUN apt-get update && apt-get install -y \ 
 	python3-pip 
+
+	
 RUN pip3 install --upgrade pip
 
 # Transformation packages
-RUN apt-get update && apt-get install -y \ 
-	python3-numpy
+RUN apt-get update && apt-get install -y \ 	
+python3-numpy
+
+#RUN pip3 install \
+#	numpy==1.26.1
 
 RUN pip3 install \
 	transforms3d \
 	scipy \
-	matplotlib 
+	matplotlib
+
 
 # Opencv from pip
 RUN pip3 install argcomplete
@@ -53,9 +58,9 @@ RUN pip3 install argcomplete
 RUN pip3 install --upgrade pip
 
 # ARuco
-RUN pip3 install CairoSVG
-RUN apt-get update && apt-get install -y \ 
-	poppler-utils
+#RUN pip3 install CairoSVG
+#RUN apt-get update && apt-get install -y \ 
+#	poppler-utils
 
 #RUN pip3 install opencv-contrib-python==4.3.0.38 
 
@@ -84,16 +89,12 @@ RUN pip3 install python-xlib pyautogui
 RUN pip3 install matplotlib \
 	pynput 
 
-# --- E-ink Display
-RUN pip3 install paho-mqtt
-
 # --- Piano
 RUN pip3 install pysinewave
 RUN apt-get update && apt-get install -y \
      libportaudio2
-RUN cd src/diegetic_button_pkg/scripts/pyfluidsynth-master/ && \
-	pip3 install pyfluidsynth
-
+#RUN apt-get update && apt-get install -y \
+#	 ros-humble-desktop
 # SET ENVIRONMENT
 WORKDIR $HOME/ws/DiegeticGazeControl
 
